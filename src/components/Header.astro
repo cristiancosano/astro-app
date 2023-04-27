@@ -1,0 +1,49 @@
+<header>
+	<div class='wrapper'>
+		<div class='menu-primary'>
+			<img src='/img/logo.webp' alt='logo' />
+			<input type='search' />
+		</div>
+
+		<div class='menu-secondary'>
+			<a href='/posts'>Recetas</a>
+			<button>Sign in</button>
+			<button>Sign up</button>
+		</div>
+	</div>
+</header>
+
+<style lang='scss'>
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: var(--header-height);
+		background-color: transparent;
+		position: fixed;
+		z-index: 1;
+		position: absolute;
+		width: 100%;
+		.wrapper {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			max-width: 50rem;
+			margin: 0 auto;
+			padding: 0 1rem;
+		}
+		img {
+			width: 100px;
+			height: 100px;
+		}
+		.menu-primary,
+		.menu-secondary {
+			display: flex;
+			align-items: center;
+			max-height: 100%;
+			gap: 0.5rem;
+		}
+	}
+</style>

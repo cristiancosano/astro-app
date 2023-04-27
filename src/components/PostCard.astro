@@ -1,0 +1,36 @@
+---
+import { Picture } from '@astrojs/image/components'
+export interface Props {
+	title: string
+	body: string
+	image: string
+	href: string
+}
+
+const { title, body, href, image } = Astro.props
+console.log(image)
+---
+
+<article class='card'>
+	<Picture
+		src={image}
+		widths={[400, 800, 1200]}
+		aspectRatio='1:1'
+		alt='descriptive text'
+	/>
+	<div class='card-content'>
+		<h2>{title}</h2>
+		<p>{body}</p>
+		<a href={href}>Leer más</a>
+	</div>
+</article>
+
+<style lang='scss'>
+	.card {
+		max-width: 100%;
+		picture,
+		img {
+			max-width: 100%;
+		}
+	}
+</style>

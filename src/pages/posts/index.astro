@@ -1,0 +1,54 @@
+---
+import PostCard from '../../components/PostCard.astro'
+
+const posts = []
+
+for (const i of Array(10).keys()) {
+	console.log(i)
+	posts.push({
+		title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+		body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+		href: 'https://google.com/' + i,
+		image: {
+			src: `https://loremflickr.com/g/320/240/food?random=${i}`,
+			alt: 'Descripción de la imagen'
+		}
+	})
+}
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<title>Document</title>
+	</head>
+	<body>
+		<main class='post-wrapper'>
+			<!--Loop -->
+			{
+				posts.map((post) => {
+					return (
+						<PostCard
+							title={post.title}
+							body={post.body}
+							href={post.href}
+							image={post.image.src}
+						/>
+					)
+				})
+			}
+		</main>
+	</body>
+</html>
+
+<style>
+	.post-wrapper {
+		margin: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+		gap: 1.5rem;
+	}
+</style>
